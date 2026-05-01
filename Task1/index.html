@@ -127,18 +127,15 @@
         height: auto;
         object-fit: cover;
       }
-
       .profile-img:hover {
         transform: scale(1.02);
       }
-
       .greeting {
         font-size: 1.6rem;
         font-weight: 500;
         letter-spacing: 1px;
         color: #94a3b8;
       }
-
       .name-highlight {
         font-size: 3.8rem;
         font-weight: 800;
@@ -148,21 +145,47 @@
         color: transparent;
         line-height: 1.2;
       }
-
-      .role-text {
+      .home-role-wrapper {
         font-size: 1.8rem;
-        color: #c084fc;
         font-weight: 600;
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0.5rem;
         margin-top: 0.5rem;
       }
-
+      #home-typed-role {
+        color: #c084fc;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        display: inline-block;
+        min-width: 220px;
+        white-space: nowrap;
+      }
+      .typed-cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1.6rem;
+        background-color: #38bdf8;
+        margin-left: 4px;
+        animation: blink 0.8s step-end infinite;
+        vertical-align: middle;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
       .desc-text {
         font-size: 1.1rem;
         line-height: 1.6;
         color: #cbd5e1;
         margin: 1.8rem 0;
       }
-
       .social-icons a {
         font-size: 1.8rem;
         margin-right: 1.5rem;
@@ -170,12 +193,10 @@
         transition: all 0.2s;
         display: inline-block;
       }
-
       .social-icons a:hover {
         color: #38bdf8;
         transform: translateY(-5px);
       }
-
       .btn-custom-primary {
         background: linear-gradient(95deg, #38bdf8, #818cf8);
         border: none;
@@ -186,13 +207,11 @@
         transition: all 0.3s;
         box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
       }
-
       .btn-custom-primary:hover {
         transform: translateY(-3px);
         box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.5);
         color: white;
       }
-
       .btn-outline-custom {
         background: transparent;
         border: 2px solid #38bdf8;
@@ -202,16 +221,68 @@
         color: #38bdf8;
         transition: all 0.3s;
       }
-
       .btn-outline-custom:hover {
         background: #38bdf8;
         color: #0f0f1f;
         transform: translateY(-3px);
       }
 
-      /* --- SKILLS SECTION - WHITE BACKGROUND + LARGER IMAGES --- */
+      .about-text {
+        animation: fadeSlideUp 0.6s ease-out;
+      }
+      .about-text h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+      }
+      .about-description {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: #cbd5e6;
+        margin: 1.2rem 0 1.5rem 0;
+      }
+      .video-portrait-container {
+        background: linear-gradient(145deg, #0f172a, #03071e);
+        border-radius: 2rem;
+        padding: 0.8rem;
+        box-shadow:
+          0 25px 40px -12px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(56, 189, 248, 0.2);
+        transition: transform 0.3s ease;
+        max-width: 380px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .video-portrait-container:hover {
+        transform: scale(1.01);
+      }
+      .portrait-video {
+        width: 100%;
+        height: auto;
+        border-radius: 1.2rem;
+        display: block;
+        object-fit: contain;
+        background: #000a1a;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+      }
+      @keyframes fadeSlideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       .skill-icon {
-        background: #ffffff; /* pure white background for clean contrast */
+        background: #ffffff;
         border-radius: 1.75rem;
         padding: 1.5rem 1rem;
         transition: all 0.3s ease;
@@ -223,24 +294,20 @@
         justify-content: center;
         box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
       }
-
       .skill-icon img {
         width: 130px;
         height: 130px;
         object-fit: contain;
         transition: transform 0.3s;
       }
-
       .skill-icon:hover {
         transform: translateY(-8px);
         border-color: #38bdf8;
         box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.2);
       }
-
       .skill-icon:hover img {
         transform: scale(1.06);
       }
-
       .project-card {
         background: rgba(20, 30, 55, 0.75);
         backdrop-filter: blur(8px);
@@ -250,28 +317,23 @@
         border: 1px solid rgba(56, 189, 248, 0.2);
         height: 100%;
       }
-
       .project-card:hover {
         transform: translateY(-10px);
         border-color: #38bdf8;
         box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
       }
-
       .project-card img {
         width: 100%;
         height: 210px;
         object-fit: cover;
         transition: transform 0.4s;
       }
-
       .project-card:hover img {
         transform: scale(1.03);
       }
-
       .project-card .card-body {
         padding: 1.5rem;
       }
-
       .btn-see-code {
         background: #1e293b;
         border: none;
@@ -281,33 +343,11 @@
         color: #b9e2ff;
         transition: all 0.2s;
       }
-
       .btn-see-code:hover {
         background: #38bdf8;
         color: #0a0c1c;
         transform: scale(1.02);
       }
-
-      .video-wrapper {
-        background: #0f172a;
-        border-radius: 2rem;
-        padding: 1rem;
-        border: 1px solid #38bdf8;
-        box-shadow: 0 20px 35px -10px black;
-        display: inline-block;
-        max-width: 100%;
-      }
-
-      video {
-        border-radius: 1.2rem;
-        width: 100%;
-        max-width: 480px;
-        height: auto;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        display: block;
-        margin: 0 auto;
-      }
-
       .contact-card {
         background: rgba(15, 25, 45, 0.8);
         backdrop-filter: blur(8px);
@@ -316,7 +356,6 @@
         border: 1px solid rgba(56, 189, 248, 0.3);
         height: 100%;
       }
-
       .contact-info-item {
         display: flex;
         align-items: center;
@@ -326,13 +365,11 @@
         background: rgba(0, 0, 0, 0.3);
         margin-bottom: 1rem;
       }
-
       .contact-info-item i {
         font-size: 1.8rem;
         color: #38bdf8;
         width: 40px;
       }
-
       .form-control-custom {
         background: #1e293b;
         border: 1px solid #334155;
@@ -340,14 +377,12 @@
         border-radius: 1rem;
         padding: 0.8rem 1rem;
       }
-
       .form-control-custom:focus {
         background: #0f172a;
         border-color: #38bdf8;
         box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
         color: white;
       }
-
       .btn-submit {
         background: linear-gradient(90deg, #38bdf8, #a855f7);
         width: 100%;
@@ -357,20 +392,23 @@
         border: none;
         transition: all 0.3s;
       }
-
       .btn-submit:hover {
         transform: scale(1.01);
         box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
       }
-
-      /* Responsive adjustments for skills */
+      footer {
+        background: #030614;
+        text-align: center;
+        padding: 1.8rem;
+        border-top: 1px solid #1e293b;
+        color: #7e8a9b;
+      }
       @media (max-width: 992px) {
         .skill-icon img {
           width: 110px;
           height: 110px;
         }
       }
-
       @media (max-width: 768px) {
         .navbar {
           padding: 0.8rem 1rem;
@@ -378,7 +416,7 @@
         .name-highlight {
           font-size: 2.2rem;
         }
-        .role-text {
+        .home-role-wrapper {
           font-size: 1.3rem;
         }
         .section-title {
@@ -392,34 +430,31 @@
           max-width: 280px;
           margin-bottom: 1.5rem;
         }
-        .skill-icon {
-          padding: 1rem 0.6rem;
-        }
         .skill-icon img {
           width: 85px;
           height: 85px;
         }
-        video {
-          max-width: 100%;
+        .video-portrait-container {
+          max-width: 280px;
+        }
+        .about-text h3 {
+          font-size: 1.5rem;
+        }
+        .typed-cursor {
+          height: 1.2rem;
         }
       }
-
       @media (max-width: 576px) {
         .skill-icon img {
           width: 70px;
           height: 70px;
         }
-        .skill-icon {
-          padding: 0.8rem;
+        .video-portrait-container {
+          max-width: 260px;
         }
-      }
-
-      footer {
-        background: #030614;
-        text-align: center;
-        padding: 1.8rem;
-        border-top: 1px solid #1e293b;
-        color: #7e8a9b;
+        .about-description {
+          font-size: 0.95rem;
+        }
       }
     </style>
   </head>
@@ -468,7 +503,10 @@
             <div class="col-lg-6 text-center text-lg-start">
               <div class="greeting">Hi, I’m</div>
               <div class="name-highlight">Krushna Kedar</div>
-              <div class="role-text">MERN Stack Developer</div>
+              <div class="home-role-wrapper">
+                <span id="home-typed-role"></span
+                ><span class="typed-cursor"></span>
+              </div>
               <div class="desc-text">
                 I build scalable web applications with clean UI and efficient
                 backend systems. Passionate about solving real-world problems
@@ -478,7 +516,9 @@
                 <a href="https://github.com/Krushnakedar" target="_blank"
                   ><i class="fab fa-github"></i
                 ></a>
-                <a href="https://linkedin.com/in/krushna-kedar" target="_blank"
+                <a
+                  href="https://www.linkedin.com/in/krushna-kedar-10b975322/"
+                  target="_blank"
                   ><i class="fab fa-linkedin"></i
                 ></a>
                 <a href="mailto:krushnakedar58309@gmail.com"
@@ -518,12 +558,52 @@
 
       <section id="about">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 text-center">
-              <h2 class="section-title">Self Introduction</h2>
-              <div class="video-wrapper d-inline-block">
-                <video src="intro.mp4" controls class="img-fluid"></video>
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6 about-text">
+              <h3>✦ About Me</h3>
+              <p class="about-description">
+                I'm a passionate
+                <strong class="text-info">MERN Stack Developer</strong> with a
+                focus on crafting full-stack web solutions that are both
+                powerful and user-centric. I love turning complex requirements
+                into smooth, responsive applications with modern design and
+                performance in mind.
+              </p>
+              <p class="about-description mt-3">
+                Experienced in MongoDB, Express.js, React, Node.js, and modern
+                frontend technologies. I dedicate myself to writing clean code
+                and building seamless digital experiences that leave a mark.
+              </p>
+              <div class="social-icons mt-3">
+                <a
+                  href="https://github.com/Krushnakedar"
+                  target="_blank"
+                  aria-label="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/krushna-kedar-10b975322/"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
               </div>
+            </div>
+            <div class="col-lg-6 text-center">
+              <div class="video-portrait-container">
+                <video
+                  class="portrait-video"
+                  controls
+                  preload="metadata"
+                  playsinline
+                >
+                  <source src="intro.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <p class="text-muted mt-3 small" style="color: #7f8ea3">
+                📱 Self introduction – MERN journey
+              </p>
             </div>
           </div>
         </div>
@@ -693,27 +773,24 @@
                   <i class="fas fa-address-card me-2"></i> Contact Info
                 </h4>
                 <div class="contact-info-item">
-                  <i class="fas fa-phone-alt"></i>
-                  <span>+91 8788174034</span>
+                  <i class="fas fa-phone-alt"></i><span>+91 8788174034</span>
                 </div>
                 <div class="contact-info-item">
-                  <i class="fas fa-envelope"></i>
-                  <span>krushnakedar58309@gmail.com</span>
+                  <i class="fas fa-envelope"></i
+                  ><span>krushnakedar58309@gmail.com</span>
                 </div>
                 <div class="contact-info-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>Pune, Maharashtra, India</span>
+                  <i class="fas fa-map-marker-alt"></i
+                  ><span>Pune, Maharashtra, India</span>
                 </div>
                 <div class="mt-4 social-icons">
                   <a href="https://github.com/Krushnakedar" target="_blank"
-                    ><i class="fab fa-github fa-2x me-3"></i
-                  ></a>
-                  <a
-                    href="https://linkedin.com/in/krushna-kedar"
+                    ><i class="fab fa-github fa-2x me-3"></i></a
+                  ><a
+                    href="https://www.linkedin.com/in/krushna-kedar-10b975322/"
                     target="_blank"
-                    ><i class="fab fa-linkedin fa-2x me-3"></i
-                  ></a>
-                  <a href="mailto:krushnakedar58309@gmail.com"
+                    ><i class="fab fa-linkedin fa-2x me-3"></i></a
+                  ><a href="mailto:krushnakedar58309@gmail.com"
                     ><i class="fas fa-envelope fa-2x"></i
                   ></a>
                 </div>
@@ -726,8 +803,8 @@
                 </h4>
                 <form id="contactForm">
                   <div class="mb-3">
-                    <label class="form-label text-light">Full Name</label>
-                    <input
+                    <label class="form-label text-light">Full Name</label
+                    ><input
                       type="text"
                       class="form-control form-control-custom"
                       id="name"
@@ -736,8 +813,8 @@
                     />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label text-light">Phone Number</label>
-                    <input
+                    <label class="form-label text-light">Phone Number</label
+                    ><input
                       type="tel"
                       class="form-control form-control-custom"
                       id="phone"
@@ -745,8 +822,8 @@
                     />
                   </div>
                   <div class="mb-3">
-                    <label class="form-label text-light">Email Address</label>
-                    <input
+                    <label class="form-label text-light">Email Address</label
+                    ><input
                       type="email"
                       class="form-control form-control-custom"
                       id="email"
@@ -757,8 +834,7 @@
                   <div class="mb-4">
                     <label class="form-label text-light"
                       >Address / Message</label
-                    >
-                    <input
+                    ><input
                       type="text"
                       class="form-control form-control-custom"
                       id="address"
@@ -785,80 +861,114 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll(".nav-link");
+      (function () {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+        const observerOptions = {
+          threshold: 0.45,
+          rootMargin: "-70px 0px -20px 0px",
+        };
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const activeId = entry.target.getAttribute("id");
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${activeId}`) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        }, observerOptions);
+        sections.forEach((section) => observer.observe(section));
 
-      const observerOptions = {
-        threshold: 0.45,
-        rootMargin: "-70px 0px -20px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const activeId = entry.target.getAttribute("id");
-            navLinks.forEach((link) => {
-              link.classList.remove("active");
-              if (link.getAttribute("href") === `#${activeId}`) {
-                link.classList.add("active");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const targetId = this.getAttribute("href");
+            if (targetId && targetId !== "#") {
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: "smooth" });
+                history.pushState(null, null, targetId);
+                navLinks.forEach((l) => l.classList.remove("active"));
+                this.classList.add("active");
               }
-            });
-          }
+            }
+            const bsCollapse = document.querySelector(".navbar-collapse");
+            if (bsCollapse && bsCollapse.classList.contains("show")) {
+              new bootstrap.Collapse(bsCollapse).hide();
+            }
+          });
         });
-      }, observerOptions);
 
-      sections.forEach((section) => observer.observe(section));
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+          contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const nameVal = document.getElementById("name")?.value || "";
+            if (nameVal.trim() === "") {
+              alert("Please enter your name.");
+              return;
+            }
+            alert(
+              `Thanks ${nameVal}, your message has been received! I'll connect soon.`,
+            );
+            contactForm.reset();
+          });
+        }
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", function (e) {
-          const targetId = this.getAttribute("href");
-          if (targetId && targetId !== "#") {
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              e.preventDefault();
-              targetElement.scrollIntoView({ behavior: "smooth" });
-              history.pushState(null, null, targetId);
-              navLinks.forEach((l) => l.classList.remove("active"));
-              this.classList.add("active");
+        const homeTypedElement = document.getElementById("home-typed-role");
+        if (homeTypedElement) {
+          const textToType = "MERN Stack Developer";
+          let currentIndex = 0;
+          let isDeleting = false;
+          let timeoutId = null;
+
+          const typingSpeed = 110;
+          const deletingSpeed = 65;
+          const pauseAfterFull = 1600;
+          const pauseAfterDelete = 550;
+
+          function typeEffect() {
+            if (!isDeleting && currentIndex <= textToType.length) {
+              homeTypedElement.innerText = textToType.substring(
+                0,
+                currentIndex,
+              );
+              currentIndex++;
+              if (currentIndex > textToType.length) {
+                isDeleting = true;
+                timeoutId = setTimeout(typeEffect, pauseAfterFull);
+                return;
+              }
+              timeoutId = setTimeout(typeEffect, typingSpeed);
+            } else if (isDeleting && currentIndex >= 0) {
+              homeTypedElement.innerText = textToType.substring(
+                0,
+                currentIndex,
+              );
+              currentIndex--;
+              if (currentIndex < 0) {
+                isDeleting = false;
+                currentIndex = 0;
+                timeoutId = setTimeout(typeEffect, pauseAfterDelete);
+                return;
+              }
+              timeoutId = setTimeout(typeEffect, deletingSpeed);
+            } else {
+              timeoutId = setTimeout(typeEffect, typingSpeed);
             }
           }
-          const bsCollapse = document.querySelector(".navbar-collapse");
-          if (bsCollapse.classList.contains("show")) {
-            new bootstrap.Collapse(bsCollapse).hide();
-          }
-        });
-      });
 
-      const contactForm = document.getElementById("contactForm");
-      if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const nameVal = document.getElementById("name")?.value || "";
-          if (nameVal.trim() === "") {
-            alert("Please enter your name.");
-            return;
-          }
-          alert(
-            `Thanks ${nameVal}, your message has been received! I'll connect soon.`,
-          );
-          contactForm.reset();
-        });
-      }
+          typeEffect();
 
-      window.addEventListener("load", () => {
-        const hash = window.location.hash;
-        if (hash) {
-          const activeLink = document.querySelector(`a[href="${hash}"]`);
-          if (activeLink) activeLink.classList.add("active");
-          const target = document.querySelector(hash);
-          if (target) target.scrollIntoView({ behavior: "smooth" });
-        } else {
-          const firstSection = document.querySelector("#home");
-          if (firstSection && window.scrollY < 100) {
-            document.querySelector('a[href="#home"]')?.classList.add("active");
-          }
+          window.addEventListener("beforeunload", () => {
+            if (timeoutId) clearTimeout(timeoutId);
+          });
         }
-      });
+      })();
     </script>
   </body>
 </html>
