@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Photo Gallery | Stunning Collection</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(145deg, #f0f4f8 0%, #d9e2ec 100%);
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Roboto",
+          sans-serif;
+        padding-bottom: 3rem;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.6rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        letter-spacing: -0.5px;
+        padding: 1.5rem 0;
+        margin-bottom: 1rem;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(18px);
+        background-color: rgba(255, 255, 255, 0.85);
+        z-index: 10;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.8rem;
+      }
+
+      .image {
+        background: #fff;
+        border-radius: 1.25rem;
+        overflow: hidden;
+        box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        aspect-ratio: 1 / 1;
+      }
+
+      .image:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      }
+
+      .image:hover img {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 1.2rem;
+          padding: 1rem 1.5rem;
+        }
+        h1 {
+          font-size: 2rem;
+          padding: 1rem 0;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .container {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          padding: 0.8rem 1rem;
+        }
+        .image {
+          aspect-ratio: 4 / 3;
+        }
+        h1 {
+          font-size: 1.7rem;
+        }
+      }
+
+      @media (max-width: 375px) {
+        .container {
+          gap: 0.9rem;
+        }
+        .image {
+          border-radius: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📸 Gallery</h1>
+    <div class="container">
+      <div class="image">
+        <img src="./images/n1.jpg" alt="Gallery image 1" />
+      </div>
+      <div class="image">
+        <img src="./images/n2.jpg" alt="Gallery image 2" />
+      </div>
+      <div class="image">
+        <img src="./images/n3.jpg" alt="Gallery image 3" />
+      </div>
+      <div class="image">
+        <img src="./images/n4.jpg" alt="Gallery image 4" />
+      </div>
+      <div class="image">
+        <img src="./images/n5.jpg" alt="Gallery image 5" />
+      </div>
+      <div class="image">
+        <img src="./images/n6.jpg" alt="Gallery image 6" />
+      </div>
+      <div class="image">
+        <img src="./images/n7.jpg" alt="Gallery image 7" />
+      </div>
+      <div class="image">
+        <img src="./images/n8.jpg" alt="Gallery image 8" />
+      </div>
+      <div class="image">
+        <img src="./images/n9.jpg" alt="Gallery image 9" />
+      </div>
+      <div class="image">
+        <img src="./images/n1.jpg" alt="Gallery image 10" />
+      </div>
+      <div class="image">
+        <img src="./images/n2.jpg" alt="Gallery image 11" />
+      </div>
+      <div class="image">
+        <img src="./images/n3.jpg" alt="Gallery image 12" />
+      </div>
+      <div class="image">
+        <img src="./images/n4.jpg" alt="Gallery image 13" />
+      </div>
+      <div class="image">
+        <img src="./images/n5.jpg" alt="Gallery image 14" />
+      </div>
+      <div class="image">
+        <img src="./images/n6.jpg" alt="Gallery image 15" />
+      </div>
+      <div class="image">
+        <img src="./images/n7.jpg" alt="Gallery image 16" />
+      </div>
+      <div class="image">
+        <img src="./images/n8.jpg" alt="Gallery image 17" />
+      </div>
+      <div class="image">
+        <img src="./images/n9.jpg" alt="Gallery image 18" />
+      </div>
+      <div class="image">
+        <img src="./images/n1.jpg" alt="Gallery image 19" />
+      </div>
+      <div class="image">
+        <img src="./images/n2.jpg" alt="Gallery image 20" />
+      </div>
+      <div class="image">
+        <img src="./images/n3.jpg" alt="Gallery image 21" />
+      </div>
+      <div class="image">
+        <img src="./images/n4.jpg" alt="Gallery image 22" />
+      </div>
+      <div class="image">
+        <img src="./images/n5.jpg" alt="Gallery image 23" />
+      </div>
+      <div class="image">
+        <img src="./images/n6.jpg" alt="Gallery image 24" />
+      </div>
+      <div class="image">
+        <img src="./images/n7.jpg" alt="Gallery image 25" />
+      </div>
+      <div class="image">
+        <img src="./images/n8.jpg" alt="Gallery image 26" />
+      </div>
+      <div class="image">
+        <img src="./images/n9.jpg" alt="Gallery image 27" />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Blog | Modern Articles</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+        min-height: 100vh;
+        color: #0f172a;
+      }
+
+      /* modern navigation */
+      #nav {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      #nav a {
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: #1e293b;
+        padding: 0.5rem 0.2rem;
+        transition: all 0.2s ease;
+        letter-spacing: -0.2px;
+        position: relative;
+      }
+
+      #nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2.5px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        transition: width 0.25s ease;
+        border-radius: 2px;
+      }
+
+      #nav a:hover {
+        color: #0f172a;
+      }
+
+      #nav a:hover::after {
+        width: 100%;
+      }
+
+      /* responsive container */
+      #container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 2rem;
+      }
+
+      /* modern card design */
+      .post {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(2px);
+        border-radius: 2rem;
+        overflow: hidden;
+        transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+      }
+
+      .post:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 40px -12px rgba(0, 0, 0, 0.2);
+        border-color: rgba(59, 130, 246, 0.3);
+        background: white;
+      }
+
+      .post h3 {
+        font-size: 1.85rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        padding: 1.5rem 1.5rem 0.75rem 1.5rem;
+        background: linear-gradient(135deg, #1e293b, #2d3a4e);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin: 0;
+      }
+
+      .post div {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0.4rem 1.5rem 0.2rem 1.5rem;
+        background: rgba(241, 245, 249, 0.5);
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 0.9rem;
+      }
+
+      .post div b {
+        font-weight: 700;
+        color: #3b82f6;
+        background: rgba(59, 130, 246, 0.1);
+        padding: 0.2rem 0.8rem;
+        border-radius: 30px;
+      }
+
+      .post div i {
+        color: #475569;
+        font-style: normal;
+        font-size: 0.85rem;
+      }
+
+      .post p {
+        padding: 1.5rem;
+        line-height: 1.6;
+        color: #334155;
+        font-weight: 400;
+        background: #ffffff;
+        margin: 0;
+        border-top: 1px solid #f1f5f9;
+      }
+
+      /* responsiveness */
+      @media (max-width: 780px) {
+        #container {
+          padding: 2rem 1.5rem;
+          gap: 1.5rem;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        .post h3 {
+          font-size: 1.6rem;
+          padding: 1.2rem 1.2rem 0.5rem 1.2rem;
+        }
+        .post div {
+          padding: 0.2rem 1.2rem;
+        }
+        .post p {
+          padding: 1.2rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        #nav {
+          gap: 1.8rem;
+          height: 70px;
+        }
+        #nav a {
+          font-size: 1rem;
+        }
+        #container {
+          grid-template-columns: 1fr;
+          padding: 1.5rem;
+        }
+        .post {
+          max-width: 100%;
+        }
+        .post h3 {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+        }
+        #nav {
+          gap: 1rem;
+          padding: 0 1rem;
+        }
+        .post div b,
+        .post div i {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav">
+      <a href="#">Home</a>
+      <a href="#">Articles</a>
+      <a href="#">About</a>
+    </div>
+
+    <div id="container">
+      <div class="post">
+        <h3>The Art of Simplicity</h3>
+        <div>
+          <b>Elena Rodriguez</b>
+          <i>24 Feb 2026</i>
+        </div>
+        <p>
+          Simplicity is the ultimate sophistication. In a world flooded with
+          noise, crafting minimal yet meaningful experiences makes all the
+          difference. Discover how to declutter your design and focus on what
+          truly matters.
+        </p>
+      </div>
+      <div class="post">
+        <h3>Modern Web Patterns</h3>
+        <div>
+          <b>Marcus Chen</b>
+          <i>24 Feb 2026</i>
+        </div>
+        <p>
+          Component-driven design, container queries, and fluid typography —
+          modern web development evolves fast. Learn about flexible UI patterns
+          that work across devices without sacrificing performance or beauty.
+        </p>
+      </div>
+      <div class="post">
+        <h3>Creative Coding</h3>
+        <div>
+          <b>Sophia Khan</b>
+          <i>24 Feb 2026</i>
+        </div>
+        <p>
+          Blending art and logic through interactive animations, generative
+          visuals, and real‑time experiments. Explore how code becomes a canvas
+          for limitless imagination.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

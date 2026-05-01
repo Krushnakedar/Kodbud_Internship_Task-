@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Krushna Kedar | MERN Stack Developer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: radial-gradient(
+          circle at 10% 20%,
+          rgba(10, 12, 28, 1) 0%,
+          rgba(3, 5, 22, 1) 100%
+        );
+        color: #f0f3fa;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      html {
+        scroll-padding-top: 85px;
+        scroll-behavior: smooth;
+      }
+
+      .navbar {
+        background: rgba(15, 25, 45, 0.95);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(72, 187, 255, 0.2);
+        padding: 1rem 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #ffffff, #38bdf8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        margin: 0 0.25rem;
+        padding: 0.5rem 1rem;
+        border-radius: 40px;
+        transition: all 0.3s ease;
+        color: #e2e8f0 !important;
+        font-size: 1rem;
+      }
+
+      .nav-link:hover {
+        color: white !important;
+        background: rgba(56, 189, 248, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        background: linear-gradient(95deg, #38bdf8, #818cf8);
+        color: white !important;
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+      }
+
+      section {
+        padding: 5rem 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 3rem;
+        text-align: center;
+        background: linear-gradient(120deg, #f8fafc, #94a3b8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #38bdf8, #a855f7);
+        border-radius: 4px;
+      }
+
+      .profile-img {
+        border-radius: 32px;
+        box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5);
+        border: 3px solid rgba(56, 189, 248, 0.4);
+        transition: transform 0.4s ease;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .profile-img:hover {
+        transform: scale(1.02);
+      }
+
+      .greeting {
+        font-size: 1.6rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #94a3b8;
+      }
+
+      .name-highlight {
+        font-size: 3.8rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #ffffff, #38bdf8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        line-height: 1.2;
+      }
+
+      .role-text {
+        font-size: 1.8rem;
+        color: #c084fc;
+        font-weight: 600;
+        margin-top: 0.5rem;
+      }
+
+      .desc-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #cbd5e1;
+        margin: 1.8rem 0;
+      }
+
+      .social-icons a {
+        font-size: 1.8rem;
+        margin-right: 1.5rem;
+        color: #cbd5e6;
+        transition: all 0.2s;
+        display: inline-block;
+      }
+
+      .social-icons a:hover {
+        color: #38bdf8;
+        transform: translateY(-5px);
+      }
+
+      .btn-custom-primary {
+        background: linear-gradient(95deg, #38bdf8, #818cf8);
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        font-weight: 700;
+        color: white;
+        transition: all 0.3s;
+        box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+      }
+
+      .btn-custom-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.5);
+        color: white;
+      }
+
+      .btn-outline-custom {
+        background: transparent;
+        border: 2px solid #38bdf8;
+        padding: 0.7rem 1.9rem;
+        border-radius: 50px;
+        font-weight: 700;
+        color: #38bdf8;
+        transition: all 0.3s;
+      }
+
+      .btn-outline-custom:hover {
+        background: #38bdf8;
+        color: #0f0f1f;
+        transform: translateY(-3px);
+      }
+
+      /* --- SKILLS SECTION - WHITE BACKGROUND + LARGER IMAGES --- */
+      .skill-icon {
+        background: #ffffff; /* pure white background for clean contrast */
+        border-radius: 1.75rem;
+        padding: 1.5rem 1rem;
+        transition: all 0.3s ease;
+        text-align: center;
+        border: 1px solid rgba(56, 189, 248, 0.25);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+      }
+
+      .skill-icon img {
+        width: 130px;
+        height: 130px;
+        object-fit: contain;
+        transition: transform 0.3s;
+      }
+
+      .skill-icon:hover {
+        transform: translateY(-8px);
+        border-color: #38bdf8;
+        box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.2);
+      }
+
+      .skill-icon:hover img {
+        transform: scale(1.06);
+      }
+
+      .project-card {
+        background: rgba(20, 30, 55, 0.75);
+        backdrop-filter: blur(8px);
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition: all 0.3s;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        height: 100%;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        border-color: #38bdf8;
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        transition: transform 0.4s;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.03);
+      }
+
+      .project-card .card-body {
+        padding: 1.5rem;
+      }
+
+      .btn-see-code {
+        background: #1e293b;
+        border: none;
+        border-radius: 40px;
+        padding: 0.6rem 1.2rem;
+        font-weight: 600;
+        color: #b9e2ff;
+        transition: all 0.2s;
+      }
+
+      .btn-see-code:hover {
+        background: #38bdf8;
+        color: #0a0c1c;
+        transform: scale(1.02);
+      }
+
+      .video-wrapper {
+        background: #0f172a;
+        border-radius: 2rem;
+        padding: 1rem;
+        border: 1px solid #38bdf8;
+        box-shadow: 0 20px 35px -10px black;
+        display: inline-block;
+        max-width: 100%;
+      }
+
+      video {
+        border-radius: 1.2rem;
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        display: block;
+        margin: 0 auto;
+      }
+
+      .contact-card {
+        background: rgba(15, 25, 45, 0.8);
+        backdrop-filter: blur(8px);
+        border-radius: 1.8rem;
+        padding: 2rem;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        height: 100%;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: rgba(0, 0, 0, 0.3);
+        margin-bottom: 1rem;
+      }
+
+      .contact-info-item i {
+        font-size: 1.8rem;
+        color: #38bdf8;
+        width: 40px;
+      }
+
+      .form-control-custom {
+        background: #1e293b;
+        border: 1px solid #334155;
+        color: white;
+        border-radius: 1rem;
+        padding: 0.8rem 1rem;
+      }
+
+      .form-control-custom:focus {
+        background: #0f172a;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+        color: white;
+      }
+
+      .btn-submit {
+        background: linear-gradient(90deg, #38bdf8, #a855f7);
+        width: 100%;
+        padding: 0.8rem;
+        font-weight: 700;
+        border-radius: 50px;
+        border: none;
+        transition: all 0.3s;
+      }
+
+      .btn-submit:hover {
+        transform: scale(1.01);
+        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+      }
+
+      /* Responsive adjustments for skills */
+      @media (max-width: 992px) {
+        .skill-icon img {
+          width: 110px;
+          height: 110px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 0.8rem 1rem;
+        }
+        .name-highlight {
+          font-size: 2.2rem;
+        }
+        .role-text {
+          font-size: 1.3rem;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        section {
+          padding: 3rem 0;
+          min-height: auto;
+        }
+        .profile-img {
+          max-width: 280px;
+          margin-bottom: 1.5rem;
+        }
+        .skill-icon {
+          padding: 1rem 0.6rem;
+        }
+        .skill-icon img {
+          width: 85px;
+          height: 85px;
+        }
+        video {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .skill-icon img {
+          width: 70px;
+          height: 70px;
+        }
+        .skill-icon {
+          padding: 0.8rem;
+        }
+      }
+
+      footer {
+        background: #030614;
+        text-align: center;
+        padding: 1.8rem;
+        border-top: 1px solid #1e293b;
+        color: #7e8a9b;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid px-3 px-lg-5">
+        <a class="navbar-brand" href="#">Portfolio.</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section id="home">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6 text-center text-lg-start">
+              <div class="greeting">Hi, I’m</div>
+              <div class="name-highlight">Krushna Kedar</div>
+              <div class="role-text">MERN Stack Developer</div>
+              <div class="desc-text">
+                I build scalable web applications with clean UI and efficient
+                backend systems. Passionate about solving real-world problems
+                using code.
+              </div>
+              <div class="social-icons my-4">
+                <a href="https://github.com/Krushnakedar" target="_blank"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a href="https://linkedin.com/in/krushna-kedar" target="_blank"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a href="mailto:krushnakedar58309@gmail.com"
+                  ><i class="fas fa-envelope"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/krushnakedar71/#"
+                  target="_blank"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+              <div
+                class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start"
+              >
+                <a href="#projects" class="btn btn-custom-primary"
+                  >View Projects</a
+                >
+                <a
+                  href="./resume8.pdf"
+                  download="Krushna_Kedar_Resume.pdf"
+                  class="btn btn-outline-custom"
+                  >Download Resume</a
+                >
+              </div>
+            </div>
+            <div class="col-lg-6 text-center">
+              <img
+                src="./images/self-img.jpeg"
+                alt="Krushna Kedar"
+                class="profile-img img-fluid"
+                style="max-width: 350px; border-radius: 30px"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 text-center">
+              <h2 class="section-title">Self Introduction</h2>
+              <div class="video-wrapper d-inline-block">
+                <video src="intro.mp4" controls class="img-fluid"></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s1.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s2.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s3.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s4.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s5.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s6.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s7.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s8.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s9.jpg" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s10.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s11.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s12.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s13.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s14.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s15.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s16.png" alt="skill" />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="skill-icon">
+                <img src="./images/s17.png" alt="skill" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="row g-5">
+            <div class="col-md-6 col-lg-4">
+              <div class="project-card">
+                <img src="./images/proj1.png" alt="Game Hub project" />
+                <div class="card-body">
+                  <h4 class="fw-bold text-white">Game Arena</h4>
+                  <p class="text-secondary mb-3">
+                    Interactive gaming platform with JavaScript logic and
+                    responsive UI.
+                  </p>
+                  <a
+                    href="https://github.com/Krushnakedar/GAMES"
+                    target="_blank"
+                    class="btn btn-see-code w-100"
+                    ><i class="fab fa-github me-2"></i>See Code</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="project-card">
+                <img src="./images/proj4.png" alt="Weather React App" />
+                <div class="card-body">
+                  <h4 class="fw-bold text-white">Weather React App</h4>
+                  <p class="text-secondary mb-3">
+                    Real-time weather dashboard using OpenWeather API, React
+                    hooks.
+                  </p>
+                  <a
+                    href="https://github.com/Krushnakedar/Weather-React-Project"
+                    target="_blank"
+                    class="btn btn-see-code w-100"
+                    ><i class="fab fa-github me-2"></i>See Code</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="project-card">
+                <img src="./images/proj3.png" alt="Major Project" />
+                <div class="card-body">
+                  <h4 class="fw-bold text-white">EcoShop MERN</h4>
+                  <p class="text-secondary mb-3">
+                    Full-stack e-commerce with MongoDB, Express, React, Node.js.
+                  </p>
+                  <a
+                    href="https://github.com/Krushnakedar/Major_project"
+                    target="_blank"
+                    class="btn btn-see-code w-100"
+                    ><i class="fab fa-github me-2"></i>See Code</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title">Let's Connect</h2>
+          <div class="row g-4">
+            <div class="col-md-5">
+              <div class="contact-card h-100">
+                <h4 class="mb-4 fw-bold">
+                  <i class="fas fa-address-card me-2"></i> Contact Info
+                </h4>
+                <div class="contact-info-item">
+                  <i class="fas fa-phone-alt"></i>
+                  <span>+91 8788174034</span>
+                </div>
+                <div class="contact-info-item">
+                  <i class="fas fa-envelope"></i>
+                  <span>krushnakedar58309@gmail.com</span>
+                </div>
+                <div class="contact-info-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Pune, Maharashtra, India</span>
+                </div>
+                <div class="mt-4 social-icons">
+                  <a href="https://github.com/Krushnakedar" target="_blank"
+                    ><i class="fab fa-github fa-2x me-3"></i
+                  ></a>
+                  <a
+                    href="https://linkedin.com/in/krushna-kedar"
+                    target="_blank"
+                    ><i class="fab fa-linkedin fa-2x me-3"></i
+                  ></a>
+                  <a href="mailto:krushnakedar58309@gmail.com"
+                    ><i class="fas fa-envelope fa-2x"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="contact-card">
+                <h4 class="mb-4 fw-bold">
+                  <i class="fas fa-paper-plane me-2"></i> Send a Message
+                </h4>
+                <form id="contactForm">
+                  <div class="mb-3">
+                    <label class="form-label text-light">Full Name</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-custom"
+                      id="name"
+                      placeholder="Krushna Kedar"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label text-light">Phone Number</label>
+                    <input
+                      type="tel"
+                      class="form-control form-control-custom"
+                      id="phone"
+                      placeholder="+91 8788174034"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label text-light">Email Address</label>
+                    <input
+                      type="email"
+                      class="form-control form-control-custom"
+                      id="email"
+                      placeholder="hello@krushna.dev"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label text-light"
+                      >Address / Message</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-custom"
+                      id="address"
+                      placeholder="Your message or location"
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-submit text-white">
+                    Send Message <i class="fas fa-arrow-right ms-2"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p class="mb-0">
+        © 2025 Krushna Kedar — MERN Stack Developer. Crafted with 💙 &
+        innovation.
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      const observerOptions = {
+        threshold: 0.45,
+        rootMargin: "-70px 0px -20px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const activeId = entry.target.getAttribute("id");
+            navLinks.forEach((link) => {
+              link.classList.remove("active");
+              if (link.getAttribute("href") === `#${activeId}`) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach((section) => observer.observe(section));
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          if (targetId && targetId !== "#") {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault();
+              targetElement.scrollIntoView({ behavior: "smooth" });
+              history.pushState(null, null, targetId);
+              navLinks.forEach((l) => l.classList.remove("active"));
+              this.classList.add("active");
+            }
+          }
+          const bsCollapse = document.querySelector(".navbar-collapse");
+          if (bsCollapse.classList.contains("show")) {
+            new bootstrap.Collapse(bsCollapse).hide();
+          }
+        });
+      });
+
+      const contactForm = document.getElementById("contactForm");
+      if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const nameVal = document.getElementById("name")?.value || "";
+          if (nameVal.trim() === "") {
+            alert("Please enter your name.");
+            return;
+          }
+          alert(
+            `Thanks ${nameVal}, your message has been received! I'll connect soon.`,
+          );
+          contactForm.reset();
+        });
+      }
+
+      window.addEventListener("load", () => {
+        const hash = window.location.hash;
+        if (hash) {
+          const activeLink = document.querySelector(`a[href="${hash}"]`);
+          if (activeLink) activeLink.classList.add("active");
+          const target = document.querySelector(hash);
+          if (target) target.scrollIntoView({ behavior: "smooth" });
+        } else {
+          const firstSection = document.querySelector("#home");
+          if (firstSection && window.scrollY < 100) {
+            document.querySelector('a[href="#home"]')?.classList.add("active");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

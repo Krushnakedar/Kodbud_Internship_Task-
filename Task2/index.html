@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>ReguGuard | Smart Compliance for Research Analysts</title>
+    <!-- Google Fonts + Font Awesome 6 (Free CDN) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #1a1f36;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+      }
+
+      /* container utility */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* ========== HEADER SECTION (navbar + hero) ========== */
+      .site-header {
+        background: linear-gradient(135deg, #f8faff 0%, #ffffff 100%);
+        border-bottom: 1px solid #e9edf5;
+      }
+
+      /* navbar - flexbox layout */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .logo span {
+        font-weight: 800;
+        background: none;
+        -webkit-background-clip: unset;
+        background-clip: unset;
+        color: #2563eb;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-weight: 500;
+        color: #2c3e66;
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: #2563eb;
+      }
+
+      .btn-outline {
+        border: 1.5px solid #2563eb;
+        background: transparent;
+        padding: 8px 20px;
+        border-radius: 40px;
+        font-weight: 600;
+        color: #2563eb;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+
+      .btn-outline:hover {
+        background: #2563eb;
+        color: white;
+      }
+
+      /* Hero section (inside header but distinct) */
+      .hero {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        padding: 60px 0 80px 0;
+        flex-wrap: wrap;
+      }
+
+      .hero-content {
+        flex: 1.2;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: #eff6ff;
+        color: #1e40af;
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-highlight {
+        color: #2563eb;
+        border-bottom: 3px solid #93c5fd;
+        display: inline-block;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        color: #4b5563;
+        margin-bottom: 2rem;
+        max-width: 90%;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 8px 14px -6px rgba(37, 99, 235, 0.25);
+      }
+
+      .btn-primary:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 1.5px solid #cbd5e1;
+        padding: 12px 32px;
+        border-radius: 40px;
+        font-weight: 600;
+        color: #2c3e66;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-secondary:hover {
+        border-color: #2563eb;
+        background: #f8fafe;
+      }
+
+      .hero-visual {
+        flex: 0.9;
+        background: linear-gradient(145deg, #eff6ff, #ffffff);
+        border-radius: 48px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.05);
+      }
+
+      .hero-visual i {
+        font-size: 5rem;
+        color: #2563eb;
+        background: white;
+        padding: 1rem;
+        border-radius: 60px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        font-weight: 500;
+      }
+
+      /* ========== FEATURE HIGHLIGHTS (grid layout) ========== */
+      .features-section {
+        padding: 80px 0;
+        background: #ffffff;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        color: #5b6b8c;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: #ffffff;
+        padding: 2rem 1.8rem;
+        border-radius: 28px;
+        border: 1px solid #eff3fa;
+        transition: all 0.25s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-6px);
+        border-color: #c7dfff;
+        box-shadow: 0 20px 30px -12px rgba(37, 99, 235, 0.12);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: #2563eb;
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .feature-card p {
+        color: #5b6b8c;
+      }
+
+      /* ========== TESTIMONIALS SECTION (grid/flex mix) ========== */
+      .testimonials-section {
+        background: #f9fbfe;
+        padding: 80px 0;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 32px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s;
+      }
+
+      .testimonial-card:hover {
+        box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+      }
+
+      .stars {
+        color: #fbbf24;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+      }
+
+      .quote {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #2c3e66;
+        margin-bottom: 1.5rem;
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .author-avatar {
+        width: 48px;
+        height: 48px;
+        background: #e2e8f0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2c3e66;
+        font-size: 1.4rem;
+      }
+
+      .author-info h4 {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .author-info p {
+        font-size: 0.8rem;
+        color: #6c7a91;
+      }
+
+      /* ========== FOOTER SECTION ========== */
+      .site-footer {
+        background: #0f172a;
+        color: #e2e8f0;
+        padding: 60px 0 30px;
+      }
+
+      .footer-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-brand {
+        flex: 1.5;
+        min-width: 200px;
+      }
+
+      .footer-brand h3 {
+        font-size: 1.8rem;
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-brand p {
+        color: #94a3b8;
+        max-width: 260px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        flex: 2;
+        justify-content: flex-end;
+      }
+
+      .links-column h4 {
+        color: white;
+        margin-bottom: 1.2rem;
+        font-weight: 600;
+      }
+
+      .links-column a {
+        display: block;
+        color: #cbd5e1;
+        text-decoration: none;
+        margin-bottom: 0.7rem;
+        transition: color 0.2s;
+      }
+
+      .links-column a:hover {
+        color: #60a5fa;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1.2rem;
+        margin-top: 1rem;
+      }
+
+      .social-icons a {
+        color: #cbd5e1;
+        font-size: 1.3rem;
+        transition: 0.2s;
+      }
+
+      .social-icons a:hover {
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #1e293b;
+        font-size: 0.85rem;
+        color: #94a3b8;
+      }
+
+      /* ========== RESPONSIVE ========== */
+      @media (max-width: 1024px) {
+        .container {
+          padding: 0 24px;
+        }
+        .hero-content h1 {
+          font-size: 2.8rem;
+        }
+        .hero-description {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .nav-links {
+          width: 100%;
+          justify-content: space-between;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          gap: 2rem;
+          padding: 40px 0 60px;
+        }
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+        .hero-description {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .hero-buttons {
+          justify-content: center;
+        }
+        .hero-visual {
+          width: 100%;
+        }
+        .section-header h2 {
+          font-size: 1.9rem;
+        }
+        .features-grid,
+        .testimonials-grid {
+          gap: 1.5rem;
+        }
+        .footer-grid {
+          flex-direction: column;
+        }
+        .footer-links {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 20px;
+        }
+        .hero-content h1 {
+          font-size: 1.9rem;
+        }
+        .btn-primary,
+        .btn-secondary {
+          padding: 10px 24px;
+          font-size: 0.9rem;
+        }
+        .feature-card {
+          padding: 1.5rem;
+        }
+        .testimonial-card {
+          padding: 1.5rem;
+        }
+      }
+
+      /* ensures smooth interactions */
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== HEADER SECTION (navigation + hero) ========== -->
+    <header class="site-header">
+      <div class="container">
+        <!-- navigation (flexbox) -->
+        <div class="navbar">
+          <div class="logo">Regu<span>Guard</span></div>
+          <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Pricing</a>
+            <button class="btn-outline">Contact sales</button>
+          </div>
+        </div>
+
+        <!-- hero area (still part of header) -->
+        <div class="hero">
+          <div class="hero-content">
+            <span class="hero-badge"
+              ><i class="fas fa-shield-alt" style="margin-right: 6px"></i>
+              Trusted by 200+ research firms</span
+            >
+            <h1>
+              Simplify <span class="hero-highlight">compliance</span><br />
+              and focus on your insights
+            </h1>
+            <p class="hero-description">
+              ReguGuard automates regulatory filings, tracks evolving standards,
+              and keeps your analysis audit-ready — empowering research analysts
+              to work with confidence.
+            </p>
+            <div class="hero-buttons">
+              <button class="btn-primary">
+                Get started free
+                <i
+                  class="fas fa-arrow-right"
+                  style="margin-left: 8px; font-size: 0.8rem"
+                ></i>
+              </button>
+              <button class="btn-secondary">Book a demo</button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <i class="fas fa-chart-line"></i>
+            <div class="hero-stats">
+              <div>
+                <i class="fas fa-check-circle" style="color: #10b981"></i> 100%
+                audit-ready
+              </div>
+              <div>
+                <i class="fas fa-clock" style="color: #2563eb"></i> 80% less
+                paperwork
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== FEATURE HIGHLIGHTS SECTION (CSS GRID) ========== -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Everything you need to stay compliant</h2>
+          <p>
+            Designed specifically for research analysts & independent advisors
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>Automated filings</h3>
+            <p>
+              SEC, FINRA & global regulatory reports auto-generated and
+              submitted on time. No more missed deadlines.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-robot"></i></div>
+            <h3>AI compliance monitor</h3>
+            <p>
+              Real-time scanning of research notes & communications to flag
+              risks before they become issues.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-lock"></i></div>
+            <h3>Bank-grade security</h3>
+            <p>
+              End-to-end encryption, role-based access, and immutable audit
+              trails for every interaction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS SECTION (CSS GRID + flex inner) ========== -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Trusted by industry leaders</h2>
+          <p>Hear what research analysts and compliance heads have to say</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <p class="quote">
+              “ReguGuard cut our compliance review time by 70%. The platform is
+              intuitive and gives us full visibility. Now we focus on generating
+              alpha instead of drowning in paperwork.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"><i class="fas fa-user-tie"></i></div>
+              <div class="author-info">
+                <h4>Dr. Susan R. Chen</h4>
+                <p>Head of Research, Meridian Capital</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <p class="quote">
+              “Finally a compliance solution that understands how analysts work.
+              Automated filing workflows and real-time rule updates gave us
+              peace of mind during our last SEC audit.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <i class="fas fa-chart-simple"></i>
+              </div>
+              <div class="author-info">
+                <h4>Michael Torres</h4>
+                <p>Senior Analyst, Crestpoint Advisors</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="quote">
+              “The risk protection dashboard is a game-changer. ReguGuard
+              empowers our team to collaborate without worrying about regulatory
+              blind spots. Highly recommended.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"><i class="fas fa-bullhorn"></i></div>
+              <div class="author-info">
+                <h4>Priya Mehta</h4>
+                <p>Compliance Director, Birchwood Research</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER SECTION ========== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>ReguGuard</h3>
+            <p>
+              Simplifying compliance for research analysts — modern,
+              intelligent, audit-ready.
+            </p>
+            <div class="social-icons">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="links-column">
+              <h4>Platform</h4>
+              <a href="#">Features</a>
+              <a href="#">Pricing</a>
+              <a href="#">Security</a>
+              <a href="#">Integrations</a>
+            </div>
+            <div class="links-column">
+              <h4>Resources</h4>
+              <a href="#">Documentation</a>
+              <a href="#">Compliance guides</a>
+              <a href="#">Webinars</a>
+              <a href="#">Support</a>
+            </div>
+            <div class="links-column">
+              <h4>Company</h4>
+              <a href="#">About us</a>
+              <a href="#">Careers</a>
+              <a href="#">Press</a>
+              <a href="#">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 ReguGuard, Inc. All rights reserved. Compliance
+            automation for research analysts.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
